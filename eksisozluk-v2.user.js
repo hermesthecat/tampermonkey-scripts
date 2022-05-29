@@ -6,7 +6,6 @@
 // @author       end
 // @match        https://eksisozluk.com/*
 // @icon         https://www.google.com/s2/favicons?domain=eksisozluk.com
-// @grant        none
 // ==/UserScript==
  
 (function() {
