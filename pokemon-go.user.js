@@ -19,11 +19,10 @@ setTimeout(function(){
 }, 1000);
 
 var notificationDetails = {
-    text:       'Thank you for signing up! Your account is now active.',
+    text:       'Your account is now active.',
     title:      'Pokemon GO Account',
     timeout:    6000,
     onclick:    function () {
-        console.log ("Notice clicked.");
         window.focus ();
     }
   };
