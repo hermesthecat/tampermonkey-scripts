@@ -4,9 +4,7 @@
 // @description Auto click
 // @include     https://eksisozluk.com/*
 // @include     https://eksisozluk.com
-// @require     http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js
-// @require  https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @grant       none
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=eksisozluk.com
 // ==/UserScript==
  
 setTimeout(function() {
