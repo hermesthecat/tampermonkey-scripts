@@ -4,6 +4,7 @@
 // @version      0.2
 // @description  turk torrent sitelerindeki sunumları otomatik begenir, reklam kliklerinden korur.
 // @author       abdullahazad
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=google.com
 // @match        https://letseed.net/details.php*
 // @match        https://turktracker.net/details.php*
 // @match        https://turktorrent.us/?p=torrents&pid=10&action=details&tid=*
