@@ -5,6 +5,7 @@
 // @description  turk torrent sitelerindeki sunumları otomatik begenir, reklam kliklerinden korur.
 // @author       abdullahazad
 // @match        https://letseed.net/details.php*
+// @match        https://turktracker.net/details.php*
 // @match        https://turktorrent.us/?p=torrents&pid=10&action=details&tid=*
 // @match        https://broadcity.in/details.php?id=*
 // @match        http://bitturk.net/?p=torrents&pid=10&action=details&tid=*
