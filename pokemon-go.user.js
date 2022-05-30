@@ -10,65 +10,70 @@
 // @grant        window.focus
 // ==/UserScript==
 
-setTimeout(function(){
+setTimeout(function() {
     if (document.querySelector('.cufonAlternate') !== null) {
-        var win = window.open("","_self");
+        var win = window.open("", "_self");
         shim_GM_notification()
         win.close();
-        }
+    }
 }, 1000);
 
+if (document.querySelector('div.column-10:nth-child(1) > p:nth-child(2)') !== null) {
+    var metin = document.querySelector('div.column-10:nth-child(1) > p:nth-child(2)').textContent;
+} else {
+    metin = document.querySelector('.cufonAlternate').textContent;
+}
+console.log(metin);
+
 var notificationDetails = {
-    text:       'Your account is now active.',
-    title:      'Pokemon GO Account',
-    timeout:    6000,
-    onclick:    function () {
-        window.focus ();
+    text: metin,
+    title: 'Pokemon GO Account',
+    timeout: 3000,
+    onclick: function() {
+        window.focus();
     }
-  };
-GM_notification (notificationDetails);
+};
+GM_notification(notificationDetails);
 
 /*--- Cross-browser Shim code follows:
-*/
-function shim_GM_notification () {
+ */
+function shim_GM_notification() {
     if (typeof GM_notification === "function") {
         return;
     }
-    window.GM_notification = function (ntcOptions) {
-        checkPermission ();
+    window.GM_notification = function(ntcOptions) {
+        checkPermission();
 
-        function checkPermission () {
+        function checkPermission() {
             if (Notification.permission === "granted") {
-                fireNotice ();
-            }
-            else if (Notification.permission === "denied") {
-                alert ("User has denied notifications for this page/site!");
+                fireNotice();
+            } else if (Notification.permission === "denied") {
+                alert("User has denied notifications for this page/site!");
                 return;
-            }
-            else {
-                Notification.requestPermission ( function (permission) {
-                    console.log ("New permission: ", permission);
-                    checkPermission ();
-                } );
+            } else {
+                Notification.requestPermission(function(permission) {
+                    console.log("New permission: ", permission);
+                    checkPermission();
+                });
             }
         }
 
-        function fireNotice () {
-            if ( ! ntcOptions.title) {
-                console.log ("Title is required for notification");
+        function fireNotice() {
+            if (!ntcOptions.title) {
+                console.log("Title is required for notification");
                 return;
             }
-            if (ntcOptions.text  &&  ! ntcOptions.body) {
+            if (ntcOptions.text && !ntcOptions.body) {
                 ntcOptions.body = ntcOptions.text;
             }
-            var ntfctn  = new Notification (ntcOptions.title, ntcOptions);
+            var ntfctn = new Notification(ntcOptions.title, ntcOptions);
 
             if (ntcOptions.onclick) {
                 ntfctn.onclick = ntcOptions.onclick;
             }
             if (ntcOptions.timeout) {
-                setTimeout ( function() {
-                    ntfctn.close ();
+                setTimeout(function() {
+                    ntfctn.close();
                 }, ntcOptions.timeout);
             }
         }
